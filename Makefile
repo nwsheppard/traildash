@@ -26,4 +26,4 @@ kibana:
 	rm -rf kibana
 
 docker: dist
-	docker build -t appliedtrust/traildash .
+	docker build -t nwsheppard/traildash .
