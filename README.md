@@ -28,6 +28,7 @@ The data in CloudTrail is essential, but it's unfortunately trapped in many tiny
 
 Configure the Traildash Docker container with a few environment variables, and you're off to the races.
 
+
 ## Quickstart
 1. [Setup Traildash in AWS](#setup-traildash-in-aws)
 1. Fill in the "XXX" blanks and run with docker:
