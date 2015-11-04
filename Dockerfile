@@ -30,5 +30,7 @@ RUN chmod 755 /root/start /usr/local/traildash/traildash
 RUN apt-get -y purge git golang build-essential python-pip curl
 RUN apt-get -y autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+WORKDIR /
+
 EXPOSE 7000
 CMD ["/root/start"]
