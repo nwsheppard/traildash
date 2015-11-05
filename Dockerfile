@@ -21,6 +21,7 @@ RUN export GOPATH=/tmp && export PATH=$GOPATH/bin:$PATH && go get github.com/rob
 
 RUN mkdir /usr/local/traildash
 RUN cp dist/linux/amd64/traildash /usr/local/traildash/traildash
+RUN cp backfill.py /root/
 
 #
 RUN cp assets/start /root/start

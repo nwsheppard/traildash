@@ -6,14 +6,14 @@ from os import environ
 import boto3
 
 
-if not all([environ.get('AWS_S3_BUCKET'), environ.get('AWS_SQS_URL')]):
-    print('You have to specify the AWS_S3_BUCKET and AWS_SQS_URL environment variables.')
+if not all([environ.get('AWS_S3_BUCKET'), environ.get('AWS_SQS_URL'), environ.get('AWS_REGION')]):
+    print('You have to specify the AWS_S3_BUCKET, AWS_REGION, and AWS_SQS_URL environment variables.')
     print('Check the "Backfilling data" section of the README file for more info.')
     exit(1)
 
 
 bucket = boto3.resource('s3').Bucket(environ.get('AWS_S3_BUCKET'))
-queue = boto3.resource('sqs').Queue(environ.get('AWS_SQS_URL'))
+queue = boto3.resource('sqs', region_name=(environ.get('AWS_REGION'))).Queue(environ.get('AWS_SQS_URL'))
 
 
 items_queued = 0
