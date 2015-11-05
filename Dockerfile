@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER AppliedTrust
 
 RUN apt-get update && apt-get -y install openjdk-7-jre-headless wget git golang \
-    build-essential python-pip curl && apt-get clean && \
+    build-essential python-pip curl python && apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN wget -q -O /usr/src/elasticsearch.deb https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.deb \
     && dpkg -i /usr/src/elasticsearch.deb
@@ -27,7 +27,7 @@ RUN cp assets/start /root/start
 RUN chmod 755 /root/start /usr/local/traildash/traildash
 
 # Clean up
-RUN apt-get -y purge git golang build-essential python-pip curl
+RUN apt-get -y purge git golang build-essential
 RUN apt-get -y autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /
